@@ -5,23 +5,36 @@
   <meta charset="UTF-8">
   <title>Crystal Collector</title>
   <link href="https://fonts.googleapis.com/css?family=Bungee+Inline" rel="stylesheet">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-  <div id="number-holders" class="center-images">
-      <div class="randomNumber"><p>Random Number:</p><div id="displayRandomNumber"></div></div>
-      <div class="randomNumber"><p>wins:</p><div id="wins"></div></div>
-      <div class="randomNumber"><p>losses:</p><div id="losses"></div></div>
-      <div class="randomNumber"><p>Total Score:</p><div id="totalScore"></div></div>
+<div class="panel panel-default custom-panel">
+    <div class="panel panel-default custom-av">
+    <h1>Crystal Collector</h1>
   </div>
-  <div id="crystal-images">
+  <div class="panel panel-default custom-panel-about">
+    <p class="customp">You will be given a random number at the start of the game.</p>
+    <p class="customp">There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score</p>
+    <p class="customp">You win the game by matching your total score to the random number. You lose if your total score goes above the random number.</p>
+  </div>
+  <div class="panel-body panel-cust">
+      <div class="panel panel-default custom-av"><p>Random Number:</p><div id="displayRandomNumber"></div></div>
+      <div class="panel panel-default custom-av"><p">wins:</p><div id="wins"></div></div>
+      <div class="panel panel-default custom-av"><p>losses:</p><div id="losses"></div></div>
+      <div class="panel panel-default custom-av"><p>Total Score:</p><div id="totalScore"></div></div>
+  </div>
+
+    <div class="panel panel-default crystal-images">
       <img src="assets/images/crystal2.jpg" alt="Crystal 1" class="crystal1" onmouseover="" style="cursor: pointer;">
       <img src="assets/images/crystal4.jpg" alt="Crystal 2" class="crystal2" onmouseover="" style="cursor: pointer;">
       <img src="assets/images/crystal5.jpg" alt="Crystal 3" class="crystal3" onmouseover="" style="cursor: pointer;">
       <img src="assets/images/crystal3.jpg" alt="Crystal 4" class="crystal4" onmouseover="" style="cursor: pointer;">
   </div>
+</div>
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript">
@@ -30,11 +43,13 @@
       var wins = 0;
       var losses = 0;
       var totalScore = 0;
-      var randomNumber = Math.floor(Math.random() * ((120 - 19) + 1) + 19);
-      var randomCrystalNum1 = Math.floor(Math.random() * ((12 - 1) + 1);
-      var randomCrystalNum2 = Math.floor(Math.random() * ((12 - 1) + 1);
-      var randomCrystalNum3 = Math.floor(Math.random() * ((12 - 1) + 1);
-      var randomCrystalNum4 = Math.floor(Math.random() * ((12 - 1) + 1);
+      var randomNumber = 0;
+      var randomCrystalNum1 = 0;
+      var randomCrystalNum2 = 0;
+      var randomCrystalNum3 = 0;
+      var randomCrystalNum4 = 0;
+
+      generateRandomNumbers();
 
 function checkWinner() {
 
@@ -51,12 +66,12 @@ function checkWinner() {
 
 function generateRandomNumbers() {
 
-      randomNumber = Math.floor(Math.random() * ((120 - 19) + 1) + 19);
+      randomNumber = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
       $('#displayRandomNumber').text(randomNumber);
-       randomCrystalNum1 = Math.floor(Math.random() * ((12 - 1) + 1);
-       randomCrystalNum2 = Math.floor(Math.random() * ((12 - 1) + 1);
-       randomCrystalNum3 = Math.floor(Math.random() * ((12 - 1) + 1);
-       randomCrystalNum4 = Math.floor(Math.random() * ((12 - 1) + 1);
+       randomCrystalNum1 = Math.floor(Math.random() * (12 - 1)) + 1;
+       randomCrystalNum2 = Math.floor(Math.random() * (12 - 1)) + 1;
+       randomCrystalNum3 = Math.floor(Math.random() * (12 - 1)) + 1;
+       randomCrystalNum4 = Math.floor(Math.random() * (12 - 1)) + 1;
       totalScore = 0;
       $('#totalScore').text(totalScore);
 }
